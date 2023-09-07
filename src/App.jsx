@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import { v4 as uuidv4 } from "uuid";
-import { NewTodoForm } from "./NewTodoForm";
-import { TodoList } from "./TodoList";
+import { NewTodoForm } from "./components/NewTodoForm/NewTodoForm";
+import { TodoList } from "./components/TodoList/TodoList";
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
@@ -40,10 +40,11 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="container">
+      <h1 className="site-header">{"Let's Get Productive!"}</h1>
       <NewTodoForm addTodo={addTodo} />
-      <h1 className="header">Todo List</h1>
+      <h1 className="header">Todo Tasks</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-    </>
+    </div>
   );
 }
